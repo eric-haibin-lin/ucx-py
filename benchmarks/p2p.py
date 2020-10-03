@@ -76,7 +76,7 @@ def server(queue, args):
             await ep.close()
             lf.close()
 
-        lf = ucp.create_listener(server_handler)
+        lf = ucp.create_listener(server_handler, args.port)
         queue.put(lf.port)
 
         while not lf.closed():
